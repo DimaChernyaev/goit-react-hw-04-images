@@ -6,7 +6,8 @@ import LoadMore from "components/LoadMore/LoadMore";
 import ErrorMessage from "components/ErrorMessage/ErrorMessage";
 import Loader from "components/Loader/Loader";
 import { Gallery } from "./App.styled";
-import ErrorConstMessage from "helpers/ErrorConstMessage";
+import ConstMessage from "helpers/ConstMessage";
+
 
 
 const App = () => {
@@ -33,20 +34,20 @@ const App = () => {
   
         if (!hits.length) {
           setIsButtonShow(false);
-          setError(ErrorConstMessage.errorFetch)
+          setError(ConstMessage.errorFetch)
           return;
         }
   
         setImages(prevState => [...prevState, ...hits])
         setIsButtonShow(true);
         setError(null)
-  
+        
         if (page * 40 > totalHits && totalHits) {
           setIsButtonShow(false);
         }
       } catch (error) {
         if (error.code !== 'ERR_CANCELED') {
-          setError(ErrorConstMessage.errorFetch)
+          setError(ConstMessage.errorFetch)
         }
       } finally {
         setIsLoading(false)
@@ -67,7 +68,7 @@ const App = () => {
     if (!value.trim()) {
       setImages([])
       setIsButtonShow(false);
-      setError(ErrorConstMessage.emptyLine)
+      setError(ConstMessage.emptyLine)
 
       resetForm()
       return;
@@ -86,8 +87,6 @@ const App = () => {
   function handlePage() {
     setPage(prevState => prevState + 1);
   }
-
-  console.log(value);
 
   return (
       <Gallery>
