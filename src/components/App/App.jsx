@@ -27,10 +27,10 @@ const App = () => {
 
     async function getImages() {  
       setIsLoading(true)
-  
+
       try {
-        setValue(value.slice(value.indexOf('/') + 1))
-        const {totalHits, hits} = await fetchImages(value, page, abortCtrl);
+        const searchValue = value.slice(value.indexOf('/') + 1);
+        const {totalHits, hits} = await fetchImages(searchValue, page, abortCtrl);
   
         if (!hits.length) {
           setIsButtonShow(false);
@@ -41,7 +41,7 @@ const App = () => {
         setImages(prevState => [...prevState, ...hits])
         setIsButtonShow(true);
         setError(null)
-        
+
         if (page * 40 > totalHits && totalHits) {
           setIsButtonShow(false);
         }

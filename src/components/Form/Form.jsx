@@ -3,6 +3,7 @@ import { SearchBar, Input, Label, ButtonSearch } from './Form.styled';
 import { HiSearch } from "react-icons/hi";
 import PropTypes from 'prop-types';
 
+
 export const SearchForm = ({onSubmit}) => {
 
     const initialValues = {
@@ -22,7 +23,7 @@ export const SearchForm = ({onSubmit}) => {
                 
                     <ButtonSearch type="submit"><HiSearch size={26}/></ButtonSearch>
                 </Label>
-                </SearchBar>
+            </SearchBar>
         </Formik>
     )
 }

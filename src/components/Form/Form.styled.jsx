@@ -50,4 +50,5 @@ export const ButtonSearch = styled.button`
     border-radius: 50%;
     border: none;
     cursor: pointer;
-`
+`;
+
